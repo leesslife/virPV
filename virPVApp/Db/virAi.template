@@ -1,0 +1,6 @@
+record (ai, "virPvAi$(num)") {
+  field (DTYP, "virPV")
+  field (PREC, "2")
+  field (SCAN, ".5 second")
+}
+
