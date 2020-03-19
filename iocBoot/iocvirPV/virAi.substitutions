@@ -1,7 +1,0 @@
-file "../../db/virAi.template"{ pattern
-{num}
-{0}
-{1}
-{2}
-{3}
-}

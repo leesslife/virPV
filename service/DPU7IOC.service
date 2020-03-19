@@ -1,0 +1,47 @@
+# It's not recommended to modify this file in-place, because it will be
+# overwritten during package upgrades.  If you want to customize, the
+# best way is to create a file "/etc/systemd/system/postgresql-9.4.service",
+# containing
+#	.include /lib/systemd/system/postgresql-9.4.service
+#	...make your changes here...
+# For more info about custom unit files, see
+# http://fedoraproject.org/wiki/Systemd#How_do_I_customize_a_unit_file.2F_add_a_custom_unit_file.3F
+
+# Note: changing PGDATA will typically require adjusting SELinux
+# configuration as well.
+
+# Note: do not use a PGDATA pathname containing spaces, or you will
+# break postgresql-setup.
+[Unit]
+Description=epics IOC database server
+
+#After=network.target
+
+[Service]
+Type=forking
+
+# Note: avoid inserting whitespace in these Environment= lines, or you may
+# break postgresql-setup.
+
+# Location of database directory
+#Environment=EPICS_CAS_SERVER_PORT=9001
+#Environment=EPICS_CA_ADDR_LIST=192.168.10.3:9001
+
+# Where to send early-startup messages from the server (before the logging
+# options of postgresql.conf take effect)
+# This is normally controlled by the global default set by systemd
+# StandardOutput=syslog
+
+# Disable OOM kill on the postmaster
+#OOMScoreAdjust=-1000
+
+
+ExecStart=/usr/local/epics/virPV/service/DPU7IOC start 
+ExecStop=/usr/local/epics/virPV/service/DPU7IOC stop 
+ExecReload=/usr/local/epics/virPV/service/DPU7IOC restart 
+
+# Give a reasonable amount of time for the server to start up/shut down
+TimeoutSec=300
+
+[Install]
+WantedBy=multi-user.target

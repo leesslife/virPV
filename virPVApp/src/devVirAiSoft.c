@@ -31,7 +31,7 @@ static long init_record(aiRecord *prec);
 static long read_ai(aiRecord *prec);
 static long init(aiRecord *prec);
 static double virStart=20;
-static OBJ obj[4];
+static OBJ obj[200];
 struct {
     long      number;
     DEVSUPFUN report;

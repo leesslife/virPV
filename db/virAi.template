@@ -1,4 +1,4 @@
-record (ai, "virPvAi$(num)") {
+record (ai, "DPU$(DPU)AX$(num)") {
   field (DTYP, "virPV")
   field (PREC, "2")
   field (SCAN, ".5 second")

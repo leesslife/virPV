@@ -10,7 +10,7 @@ dbLoadDatabase("../../dbd/virPV.dbd",0,0)
 virPV_registerRecordDeviceDriver(pdbbase) 
 
 ## Load record instances
-dbLoadTemplate("virAi.substitutions")
+dbLoadTemplate("DPU04.substitutions")
 
 iocInit()
 
