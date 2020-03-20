@@ -49,7 +49,8 @@
     /usr/local/epics/base-3.15.5/dbd/filters.dbd \
     /usr/local/epics/base-3.15.5/dbd/devSoft.dbd \
     /usr/local/epics/base-3.15.5/dbd/asSub.dbd \
-    /usr/local/epics/base-3.15.5/dbd/dbCore.dbd
+    /usr/local/epics/base-3.15.5/dbd/dbCore.dbd \
+    ../virPVMain.dbd
 
 /usr/local/epics/base-3.15.5/dbd/base.dbd:
 /usr/local/epics/base-3.15.5/dbd/menuGlobal.dbd:
@@ -103,4 +104,5 @@
 /usr/local/epics/base-3.15.5/dbd/devSoft.dbd:
 /usr/local/epics/base-3.15.5/dbd/asSub.dbd:
 /usr/local/epics/base-3.15.5/dbd/dbCore.dbd:
+../virPVMain.dbd:
 ../O.Common/virPV.dbd: ../Makefile
