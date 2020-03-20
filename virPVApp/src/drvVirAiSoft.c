@@ -14,7 +14,7 @@ void init_pid(pPID pp,double p,double i,double d)
 double pid_calculate(pPID pp,double error)
 {
     pp->integration+=error;
-    pp->differential=error-pp->lastpoint;
+    pp->differential=pp->lastpoint-error;
     pp->fix=pp->kp*error+pp->ki*pp->integration+pp->kd*pp->differential;
     pp->lastpoint=error;
     return pp->fix;
