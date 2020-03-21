@@ -25,6 +25,7 @@
 #include "aiRecord.h"
 #include "epicsExport.h"
 #include "drvVirAiSoft.h"
+#include <string.h>
 //#include "ListVirPV.h"
 /* Create the dset for devAiSoft */
 static long init_record(aiRecord *prec);
@@ -32,6 +33,11 @@ static long read_ai(aiRecord *prec);
 static long init(aiRecord *prec);
 static double virStart=20;
 static OBJ obj[200];
+static char *buff;
+static char *TempVal;
+static char *PidObjIndex;
+
+static 
 struct {
     long      number;
     DEVSUPFUN report;
@@ -61,8 +67,14 @@ static long init_record(aiRecord *prec)
     switch (prec->inp.type) {
     case CONSTANT:
 	    prec->val=virStart;
-        int b=atoi(prec->inp.text);
-        init_obj(&obj[b],40,100,0.5,0.5);
+        buff=prec->inp.text;
+        PidObjIndex=strsep(&buff,"@T");
+        TempVal=strsep(&buff," ");
+        int b=atoi(PidObjIndex);
+        int t=atoi(TempVal);
+        double target_t=double(t);
+        //int b=atoi(prec->inp.text);
+        init_obj(&obj[b],target_t,100,0.5,0.5);
         if (recGblInitConstantLink(&prec->inp, DBF_DOUBLE, &prec->val))
             prec->udf = FALSE;
         break;

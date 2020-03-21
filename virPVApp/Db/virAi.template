@@ -1,4 +1,4 @@
-record (ai, "virPvAi$(num)") {
+record (ai, "DPU$(DPU)$(num)") {
   field (DTYP, "virPV")
   field (PREC, "2")
   field (INP,  "$(num)@T$(Temp)
